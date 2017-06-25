@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+
+{% block title %}{% endblock %}
+
+
+{% block content %}
+    <div class="content">
+        <div class="box">
+            <div id="uploader">
+                <h1>Memulator 9000</h1>
+                <p>A way to convert .mp4 files into gifs, online. Please read our <a href="/privacy">privacy policy</a> before using the website.</p>
+
+                <form id="fileUpload" name="fileUpload" action="/" method="POST" enctype="multipart/form-data">
+                    <label class="file">
+                        <input type="file" id="uploaded" name="uploaded" class="file-input">
+                        <span class="file-control" id="fileSpan" name="fileSpan" data-filename="Choose File..."></span>
+                    </label>
+                </form>
+            </div>
+            <div class="sub-box" id="progress">
+                <p class="upload-progress-label">Upload progress</p>
+                <b name="upload-progress" class="upload-progress">0%</b>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="public/js/custom-input.js"></script>
+    <script src="public/js/progress.js"></script>
+{% endblock %}

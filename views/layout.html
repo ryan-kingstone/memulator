@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ title }}</title>
+
+    <link rel="stylesheet" href="public/css/design.css">
+    <link rel="stylesheet" href="public/css/site.css">
+
+    <link rel="shortcut icon" type="image/png" href="public/img/logo.png"/>
+
+  </head>
+  <body>
+  {% block content %}
+  {% endblock %}
+
+  <footer class="credit-footer">
+      <img src="public/img/logo.png" width=20px>
+      <p>Created by <a href="https://steamcommunity.com/id/ryankingstone">Kingstone</a>.</p>
+  </footer>
+
+  <script src="public/js/jquery.min.js"></script>
+  {% block scripts %}
+  {% endblock %}
+  </body>
+</html>

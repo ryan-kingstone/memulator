@@ -1,0 +1,52 @@
+@use postcss-nested;
+@use cssnext;
+@use postcss-simple-vars;
+
+/* CSS for styling file input included as external resource */
+.form {
+  margin: 40px 0;
+}
+
+.file-input {
+  min-width: 400px;
+}
+
+.file-control {
+  overflow: hidden;
+}
+
+.file-control:after {
+  content: attr(data-filename);
+}
+
+.box {
+    position: absolute;
+    top:50%;
+    left:50%;
+    padding:15px;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}
+
+.sub-box {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.credit-footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    text-align: center;
+}
+
+.upload-progress {
+    display: none;
+}
+
+.upload-progress-label {
+    display: none;
+}
