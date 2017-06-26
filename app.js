@@ -39,8 +39,9 @@ app.post('/', function(req, res) {
     // The name of the input field (i.e. "file") is used to retrieve the uploaded file
     let file = req.files.uploaded;
 
-    // Use the mv() method to place the file somewhere on your server
-    file.mv('uploads/' + Utility.getRandomString(13) + '.mp4', function(err) {
+    var newFileName = Utility.getRandomString(13) + '.mp4';
+
+    file.mv('uploads/' + newFileName, function(err) {
         if (err)
             return res.status(500).send(err);
 
