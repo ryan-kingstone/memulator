@@ -39,11 +39,18 @@ app.post('/', function(req, res) {
     // The name of the input field (i.e. "file") is used to retrieve the uploaded file
     let file = req.files.uploaded;
 
+<<<<<<< HEAD
     var newFileName = Utility.getRandomString(13);
 
     file.mv('uploads/' + newFileName + '.mp4', function(err) {
         if (err) {
             console.log(err.toString());
+=======
+    var newFileName = Utility.getRandomString(13) + '.mp4';
+
+    file.mv('uploads/' + newFileName, function(err) {
+        if (err)
+>>>>>>> 6e798f96c374089eeb54b49d92be8df2bff0b218
             return res.status(500).send(err);
         }
 
