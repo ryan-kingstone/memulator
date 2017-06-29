@@ -16,7 +16,7 @@ var swig = require('swig');
 app.use('/public', express.static(path.join(__dirname + '/public')));
 app.use('/tmp', express.static(path.join(__dirname + '/tmp')));
 app.use(fileUpload({
-  limits: { fileSize: 40 * 1024 * 1024 }, safeFileNames: true
+  limits: { fileSize: 200 * 1024 * 1024 }, safeFileNames: true
 }));
 
 var swig = new swig.Swig();
@@ -47,17 +47,17 @@ app.post('/', function(req, res) {
             return res.status(500).send(err);
         }
 
-        var cmd = 'ffmpeg -i uploads/' + newFileName + '.mp4 -r 10 "tmp/' + newFileName + '.gif" -hide_banner';
+        var cmd = 'ffmpeg -i uploads/' + newFileName + '.mp4 -r 24 -vf scale=640:-1 "tmp/' + newFileName + '.gif" -hide_banner';
         exec(cmd, function(error, stdout, stderr) {
 
-            res.render('upload', { status: 'File uploaded!', message: 'Attached is your converted image. Please keep in mind that this file will be removed from our server in 60 seconds.', image: 'tmp/' + newFileName + '.gif'});
+            res.render('upload', { status: 'File uploaded!', message: 'Attached is your converted image. Please keep in mind that this file will be removed from our server in 240 seconds.', image: 'tmp/' + newFileName + '.gif'});
             
             setTimeout(function timeout () {
                 console.log('Removing old files');
 
                 removeFiles('/tmp');
                 removeFiles('/uploads');
-            }, 60 * 1000);
+            }, 240 * 1000);
         });
     });
 });
